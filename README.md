@@ -110,27 +110,6 @@ VoC 리포트는 특정 월의 현황표로 끝나면 가치가 제한됩니다.
 
 이 기록은 추후 `CHANGELOG.md` 또는 `docs/feedback-log.md`로 분리해 관리할 수 있습니다. 목적은 자동화 결과를 그대로 신뢰하는 것이 아니라, AI가 만든 초안을 현업 기준으로 검증하고 개선하는 운영 루프를 남기는 것입니다.
 
-## 포트폴리오 공개 방식
-
-GitHub에는 다음 구조로 공개하는 것을 권장합니다.
-
-```text
-voc-report-automation/
-  README.md
-  samples/
-    VoC_master_mock_up.xlsx
-    VoC_Report_2026-06_mock_up.html
-  docs/
-    workflow.md
-    taxonomy.md
-    feedback-log.md
-  skill/
-    prompt.md
-    instructions.md
-  CHANGELOG.md
-```
-
-포트폴리오에서는 코드의 양보다 문제 정의와 운영 설계가 더 중요합니다. 따라서 README에는 전체 스토리와 결과물을 보여주고, `docs/`에는 분류 기준과 변경 이력을, `skill/`에는 공개 가능한 범위의 프롬프트 설계 원칙을 정리하는 방식이 적합합니다.
 
 ## 사용 도구
 
