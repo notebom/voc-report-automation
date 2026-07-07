@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VoC 월간 보고서 (Mock-up)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--mint:#2FC7BC;--mint-d:#42B4A6;--mint-l:#D9F6F0;--purple:#7D50F0;--pink:#EE3F60;--ink:#0F0F0F;--gray:#636363;--grayl:#E8E8E8;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Pretendard',sans-serif;background:#EEE;color:var(--ink);line-height:1.5;padding:24px 0}
+.en{font-family:'Poppins',sans-serif}
+.page{width:794px;min-height:1122px;background:#fff;margin:0 auto 24px;padding:48px 44px;box-shadow:0 4px 20px rgba(0,0,0,.1);position:relative}
+.badge{position:absolute;top:28px;right:44px;border:1px solid var(--pink);color:var(--pink);font-family:'Poppins';font-size:9px;padding:4px 12px;border-radius:12px}
+.logo{font-family:'Poppins';font-weight:700;font-size:15px;color:var(--mint-d)}
+.kicker{font-family:'Poppins';font-weight:700;color:var(--mint-d);letter-spacing:2px;font-size:12px;margin-top:26px}
+h1{font-size:26px;margin:4px 0 6px}
+.intro{color:var(--gray);font-size:12px;margin-bottom:18px}
+/* cover */
+.cover{background:var(--ink);color:#fff;min-height:1122px;overflow:hidden}
+.cover .circle1{position:absolute;width:520px;height:520px;border-radius:50%;background:#42B4A6;opacity:.45;right:-120px;top:-160px}
+.cover .circle2{position:absolute;width:520px;height:520px;border-radius:50%;background:#7D50F0;opacity:.35;left:-180px;bottom:-160px}
+.cover-body{position:relative;z-index:2;margin-top:360px}
+.cover h1{font-size:40px;color:#fff}
+.cover .yr{font-size:26px;color:var(--mint);font-weight:700;margin-top:6px}
+.cover .line{width:180px;height:2px;background:var(--mint);margin:22px 0}
+.cover .meta{color:#E8E8E8;font-size:13px;margin:6px 0}
+.cover .meta b{color:var(--mint);font-family:'Poppins'}
+.mock-tag{display:inline-block;background:#7D50F0;color:#fff;font-size:11px;padding:4px 12px;border-radius:6px;margin-top:16px;font-weight:600}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 24px}
+.card{border-radius:10px;padding:18px 10px;text-align:center}
+.card .num{font-family:'Poppins';font-weight:700;font-size:30px}
+.card .lbl{font-weight:700;font-size:12px;margin-top:6px}
+.card .sub{color:var(--gray);font-size:10px;margin-top:2px}
+.section-title{font-size:16px;font-weight:700;color:var(--mint-d);margin:22px 0 12px}
+/* momentum */
+.mom-row{display:flex;align-items:center;background:#F0F4FF;border-radius:6px;padding:12px 16px;margin-bottom:8px}
+.mom-row:nth-child(even){background:#F7F7F7}
+.mom-lbl{flex:1;font-weight:700;font-size:12px}
+.mom-val{font-family:'Poppins';font-weight:700;font-size:16px;color:var(--purple);width:80px;text-align:center}
+.mom-note{color:var(--gray);font-size:10px;font-style:italic;width:140px}
+.notice{background:var(--mint-l);border-radius:6px;padding:12px 16px;font-size:11px;color:var(--gray);margin:14px 0}
+.notice b{color:var(--mint-d)}
+.hl{display:flex;align-items:flex-start;gap:10px;margin:10px 0}
+.hl .n{background:var(--mint-d);color:#fff;width:22px;height:22px;border-radius:50%;font-family:'Poppins';font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hl b{font-size:12px} .hl span{color:var(--gray);font-size:11px}
+/* unresolved */
+.ratio-row{display:flex;gap:20px;align-items:flex-start;margin-bottom:14px}
+.ratio-chip{background:var(--pink-l,#FBD8DF);background:#FBD8DF;border-radius:10px;padding:14px 8px;text-align:center;width:150px}
+.ratio-chip .num{font-family:'Poppins';font-weight:700;font-size:26px;color:var(--pink)}
+.ratio-chip .lbl{font-weight:700;font-size:11px} .ratio-chip .sub{color:var(--gray);font-size:10px}
+.bars{flex:1}
+.bar-row{display:flex;align-items:center;margin:5px 0}
+.bar-lbl{width:70px;font-size:11px;font-weight:700}
+.bar{height:14px;border-radius:3px;margin-right:8px}
+.bar-val{font-family:'Poppins';font-weight:700;font-size:11px}
+.trans-box{background:var(--mint-l);border-radius:6px;padding:10px 14px;font-size:11px;color:var(--gray);margin:8px 0 16px}
+.trans-box b{color:var(--mint-d)}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th{background:var(--mint-d);color:#fff;padding:7px;font-weight:700}
+td{border:1px solid var(--grayl);padding:6px;vertical-align:middle}
+td.c{text-align:center}
+tr:nth-child(even) td{background:#F7F7F7}
+.mini{font-size:9px;color:var(--gray)}
+.kw{color:var(--mint-d);font-weight:700;font-size:10px}
+.foot{position:absolute;bottom:28px;left:44px;right:44px;color:var(--gray);font-size:9px;font-style:italic;border-top:1px solid var(--grayl);padding-top:8px}
+/* category */
+.cat-block{border:1px solid var(--grayl);border-radius:8px;overflow:hidden;margin-bottom:14px}
+.cat-header{color:#fff;font-weight:700;padding:10px 16px;font-size:14px}
+.cat-body{display:flex;background:#F9F9F9}
+.cat-left{width:48%;padding:14px;border-right:1px solid var(--grayl)}
+.cat-right{width:52%;padding:14px}
+.rep-head{font-weight:700;font-size:11px;margin-bottom:8px}
+.mid{margin-bottom:10px}
+.mid-head{display:flex;justify-content:space-between;font-size:10px;font-weight:700}
+.mid-bar-bg{background:#E8E8E8;height:8px;border-radius:2px;margin:3px 0}
+.mid-bar{height:8px;border-radius:2px}
+.mid-sub{font-size:9px;color:var(--gray)}
+.rep-meta{font-size:10px;margin-bottom:3px} .rep-content{font-size:10px;margin-top:4px}
+.muted{color:var(--gray);font-style:italic;font-size:10px}
+/* planned */
+.plan-card{background:var(--mint-l);border:1px solid var(--grayl);border-radius:8px;padding:14px;margin-bottom:12px}
+.plan-card:nth-child(even){background:#F7F7F7}
+.chip{color:#fff;font-family:'Poppins';font-size:10px;padding:4px 10px;border-radius:5px}
+.plan-inst{margin-left:10px;font-size:12px}
+.plan-content{font-size:11px;color:#333;margin:6px 0}
+.ver{font-size:11px;font-weight:700;color:var(--gray)}
+.ver-box{display:inline-block;width:200px;height:20px;border:1px solid var(--purple);border-radius:4px;vertical-align:middle;margin-left:8px}
+/* cas pick */
+.pick{border:1.5px solid var(--mint-d);border-radius:10px;padding:16px;margin-bottom:16px;position:relative}
+.pick-tag{background:var(--mint-d);color:#fff;font-family:'Poppins';font-weight:700;padding:4px 14px;border-radius:8px;display:inline-block;font-size:12px}
+.pick-field{font-size:11px;font-weight:700;color:var(--gray);margin-top:12px}
+.pick-line{border-bottom:1px solid var(--grayl);height:18px}
+/* inquiry */
+.inq-wrap{display:flex;gap:16px}
+.inq-col{flex:1}
+.inq-title{color:#fff;font-weight:700;padding:8px 14px;border-radius:6px;font-size:12px;margin-bottom:10px}
+.inq-row{display:flex;gap:10px;margin-bottom:12px}
+.rank{color:#fff;font-family:'Poppins';font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.inq-body{flex:1} .inq-head{font-size:11px}
+.inq-bar-bg{background:#EEE;height:6px;border-radius:2px;margin:3px 0}
+.inq-bar{height:6px;border-radius:2px}
+.inq-sample{font-size:9px;color:var(--gray);font-style:italic}
+/* positive */
+.pos-card{background:var(--mint-l);border:1px solid var(--mint-d);border-radius:8px;padding:14px;margin-bottom:10px}
+.pos-inst{font-size:13px} .pos-title{font-size:11px;margin-top:5px}
+.pos-stats{display:flex;gap:12px;margin-bottom:16px}
+.pos-stat{border-radius:10px;padding:14px;text-align:center;flex:1}
+.pos-stat .num{font-family:'Poppins';font-weight:700;font-size:30px}
+.monthly{display:flex;align-items:flex-end;gap:10px;height:120px;padding:10px 0;border-bottom:2px solid var(--grayl)}
+.mc-col{flex:1;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+.mc-bar{background:var(--mint-d);border-radius:3px 3px 0 0;min-height:4px}
+.mc-val{font-family:'Poppins';font-weight:700;font-size:11px;margin-top:4px}
+.mc-lbl{font-size:10px;color:var(--gray)}
+@page{size:A4;margin:0}
+@media print{body{background:#fff;padding:0}.page{box-shadow:none;margin:0;page-break-after:always;page-break-inside:avoid;width:100%;min-height:auto;height:1122px;overflow:hidden}.cover{height:1122px}}
+</style></head><body>
+
+<!-- COVER -->
+<div class="page cover">
+  <div class="circle1"></div><div class="circle2"></div>
+  <div class="badge">Confidential</div>
+  <div class="logo" style="color:var(--mint)">VoC Analytics</div>
+  <div class="cover-body">
+    <div class="kicker" style="color:#B3EDE1">VoC MONTHLY REPORT</div>
+    <h1>고객의 소리 월간 보고서</h1>
+    <div class="yr">2026년 6월</div>
+    <div class="line"></div>
+    <div class="meta">데이터 기준일 &nbsp;<b>2026.06.30</b></div>
+    <div class="meta">6월 신규 VoC &nbsp;<b>45건</b> &nbsp;&nbsp; 누적 VoC &nbsp;<b>200건</b></div>
+    <div class="mock-tag">PORTFOLIO · MOCK-UP DATA</div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="page">
+  <div class="badge">Confidential</div><div class="logo">VoC Analytics</div>
+  <div class="kicker en">01 &nbsp;MONTHLY SUMMARY</div>
+  <h1>6월 VoC 종합 요약</h1>
+  <div class="cards"><div class="card" style="background:#D9F6F0"><div class="num" style="color:#42B4A6">22</div><div class="lbl">6월 신규 (관리대상)</div><div class="sub">불만·제안 기준</div></div><div class="card" style="background:#E5DCFC"><div class="num" style="color:#7D50F0">200</div><div class="lbl">누적 VoC</div><div class="sub">전체 접수</div></div><div class="card" style="background:#FBD8DF"><div class="num" style="color:#EE3F60">54.6%</div><div class="lbl">미진행 비율</div><div class="sub">관리대상 53/97</div></div><div class="card" style="background:#DDEEF5"><div class="num" style="color:#3F92B7">17</div><div class="lbl">누적 긍정 VoC</div><div class="sub">6월 +5건</div></div></div>
+  <div class="section-title" style="color:var(--purple)">전월 대비 지표</div>
+  <div class="mom-row"><span class="mom-lbl">신규 유입 추이 (전체 VoC)</span><span class="mom-val">45건</span><span class="mom-note">전월 대비 추이</span></div>
+  <div class="mom-row"><span class="mom-lbl">상태 전환 (미진행→완료·예정·미해당)</span><span class="mom-val">12건</span><span class="mom-note">전월 미진행분 중 처리</span></div>
+  <div class="mom-row"><span class="mom-lbl">미진행 비율 변화</span><span class="mom-val">54.6%</span><span class="mom-note">전월 67.0% → 54.6%</span></div>
+  <div class="mom-row"><span class="mom-lbl">심각도 '상' 신규</span><span class="mom-val">1건</span><span class="mom-note">6월 신규 중</span></div>
+  <div class="notice"><b>안내</b> &nbsp;본 보고서는 포트폴리오용 가상 데이터입니다. 누적 VoC(200)는 전체 접수, 미진행 비율의 분모(97)는 회의체 관리 대상 기준입니다. 전월 스냅샷과 대조해 상태 전환을 집계했습니다.</div>
+  <div class="section-title">이달의 핵심</div>
+  <div class="hl"><span class="n">1</span><div><b>6월 신규 중 제품 기능 관련이 20건으로 최다</b><br><span>해당 영역에 VoC 집중</span></div></div>
+  <div class="hl"><span class="n">2</span><div><b>누적 미진행 53건 (관리대상 97건 중 54.6%)</b><br><span>6월 신규 중 심각도 상 1건은 우선 대응 필요</span></div></div>
+  <div class="hl"><span class="n">3</span><div><b>전월 미진행 중 12건이 이번 달 처리 전환</b><br><span>단순 문의 누적 86건은 별도 분석</span></div></div>
+  <div class="hl"><span class="n">4</span><div><b>6월 긍정 VoC 5건</b><br><span>제품 효용에 대한 긍정적 피드백 확인</span></div></div>
+  <div class="foot">※ 상세 데이터는 VoC master(mock-up) 파일 참조 · 포트폴리오용 가상 데이터</div>
+</div>
+
+<!-- UNRESOLVED -->
+<div class="page">
+  <div class="badge">Confidential</div><div class="logo">VoC Analytics</div>
+  <div class="kicker en">02 &nbsp;UNRESOLVED STATUS</div>
+  <h1>미진행 VoC 현황</h1>
+  <div class="ratio-row">
+    <div class="ratio-chip"><div class="num">54.6%</div><div class="lbl">미진행 비율</div><div class="sub">관리대상 53/97</div></div>
+    <div class="bars"><div class="bar-row"><span class="bar-lbl">미반영</span><span class="bar" style="width:100.0%;background:#EE3F60"></span><span class="bar-val" style="color:#EE3F60">53</span></div><div class="bar-row"><span class="bar-lbl">미해당</span><span class="bar" style="width:49.056603773584904%;background:#636363"></span><span class="bar-val" style="color:#636363">26</span></div><div class="bar-row"><span class="bar-lbl">반영 완료</span><span class="bar" style="width:26.41509433962264%;background:#42B4A6"></span><span class="bar-val" style="color:#42B4A6">14</span></div><div class="bar-row"><span class="bar-lbl">반영 예정</span><span class="bar" style="width:7.547169811320755%;background:#7D50F0"></span><span class="bar-val" style="color:#7D50F0">4</span></div></div>
+  </div>
+  <div class="trans-box"><b>전월 대비 상태 전환</b> &nbsp;지난달 미진행이던 VoC 중 <b>12건</b>이 이번 달 반영·미해당으로 전환되었습니다. (VoC_20260217_027 미해당, VoC_20260123_037 반영 완료, VoC_20260103_038 미해당, VoC_20260118_044 미해당 외)</div>
+  <div class="section-title">6월 미진행 VoC (해당 월 12건 · 비율은 관리대상 기준)</div>
+  <table><tr><th>VoC ID</th><th>제공자 유형</th><th>키워드 및 내용</th><th>심각도</th></tr><tr>
+        <td class="c"><b>VoC_20260213_123</b><br><span class="mini" style="color:#7D50F0">유사 6건</span></td>
+        <td class="c"><span class="mini">간호사/중환자실</span></td>
+        <td><span class="kw">제품 기능 › 환자 모니터링 › 고위험군 필터</span><br>선별 기준 미만 환자도 모니터링하고 싶다는 현장 요청</td>
+        <td class="c" style="color:#EE3F60;font-weight:700">상</td></tr><tr>
+        <td class="c"><b>VoC_20260406_006</b><br><span class="mini" style="color:#7D50F0">유사 5건</span></td>
+        <td class="c"><span class="mini">간호사/중환자실</span></td>
+        <td><span class="kw">제품 기능 › 환자 모니터링 › 전체 환자 조회</span><br>선별 기준 미만 환자도 모니터링하고 싶다는 현장 요청</td>
+        <td class="c" style="color:#EE3F60;font-weight:700">상</td></tr><tr>
+        <td class="c"><b>VoC_20260520_046</b><br><span class="mini" style="color:#7D50F0">유사 4건</span></td>
+        <td class="c"><span class="mini">간호사/응급실</span></td>
+        <td><span class="kw">AI 모델 › 임상 데이터 › 활력징후 입력 누락</span><br>활력징후 입력 누락으로 점수 계산이 안 되는 사례</td>
+        <td class="c" style="color:#EE3F60;font-weight:700">상</td></tr><tr>
+        <td class="c"><b>VoC_20260423_043</b><br><span class="mini" style="color:#7D50F0">유사 2건</span></td>
+        <td class="c"><span class="mini">간호사/응급실</span></td>
+        <td><span class="kw">제품 기능 › 환자 모니터링 › 실시간 상태 표시</span><br>선별 기준 미만 환자도 모니터링하고 싶다는 현장 요청</td>
+        <td class="c" style="color:#EE3F60;font-weight:700">상</td></tr><tr>
+        <td class="c"><b>VoC_20260127_022</b><br><span class="mini" style="color:#7D50F0">유사 5건</span></td>
+        <td class="c"><span class="mini">전공의</span></td>
+        <td><span class="kw">제품 기능 › 화면/판독 › 가독성</span><br>글자 크기 등 판독 가독성 개선 요청</td>
+        <td class="c" style="color:#7D50F0;font-weight:700">중</td></tr><tr>
+        <td class="c"><b>VoC_20260120_089</b><br><span class="mini" style="color:#7D50F0">유사 4건</span></td>
+        <td class="c"><span class="mini">간호사/관리직</span></td>
+        <td><span class="kw">고객 지원 › 온보딩 › 신규 병동 교육</span><br>신규 병동 대상 사용 교육 요청</td>
+        <td class="c" style="color:#7D50F0;font-weight:700">중</td></tr><tr>
+        <td class="c"><b>VoC_20260622_122</b><br><span class="mini" style="color:#7D50F0">유사 3건</span></td>
+        <td class="c"><span class="mini">적정진료관리팀</span></td>
+        <td><span class="kw">고객 지원 › 행정/규제 › AI 사용 규정</span><br>환자 동의서 구득이 어렵다는 현장 의견</td>
+        <td class="c" style="color:#7D50F0;font-weight:700">중</td></tr><tr>
+        <td class="c"><b>VoC_20260609_187</b><br><span class="mini" style="color:#636363">단건</span></td>
+        <td class="c"><span class="mini">적정진료관리팀</span></td>
+        <td><span class="kw">기타 › 기타 › 기타 의견</span><br>기타 문의 사항</td>
+        <td class="c" style="color:#7D50F0;font-weight:700">중</td></tr></table>
+  <div class="foot">※ 심각도 상·중 우선 정렬 · 전체 미진행은 VoC master(mock-up) 참조</div>
+</div>
+
+<!-- CATEGORY 1/2 -->
+<div class="page">
+  <div class="badge">Confidential</div><div class="logo">VoC Analytics</div>
+  <div class="kicker en">03 &nbsp;BY CATEGORY</div>
+  <h1>대분류 키워드별 VoC 구성 (1/2)</h1>
+  <div class="intro">중분류 구성비는 관리대상 누적 기준, 대표 VoC는 6월 접수분 중 심각도·유사 빈도 순으로 선정했습니다.</div>
+  <div class="cat-block">
+          <div class="cat-header" style="background:#42B4A6">제품 기능 · 누적 40건 41%</div>
+          <div class="cat-body"><div class="cat-left"><div class="rep-head">중분류 구성비 (누적)</div><div class="mid">
+              <div class="mid-head"><span>환자 모니터링</span><span style="color:#42B4A6;font-weight:700">13건 32%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:32%;background:#42B4A6"></div></div>
+              <div class="mid-sub">· 고위험군 필터 6</div></div><div class="mid">
+              <div class="mid-head"><span>알림/알람</span><span style="color:#42B4A6;font-weight:700">11건 28%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:28%;background:#42B4A6"></div></div>
+              <div class="mid-sub">· 알람 피로도 5</div></div><div class="mid">
+              <div class="mid-head"><span>기능 개선 요청</span><span style="color:#42B4A6;font-weight:700">8건 20%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:20%;background:#42B4A6"></div></div>
+              <div class="mid-sub">· 라운딩 체크리스트 4</div></div><div class="mid">
+              <div class="mid-head"><span>화면/판독</span><span style="color:#42B4A6;font-weight:700">8건 20%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:20%;background:#42B4A6"></div></div>
+              <div class="mid-sub">· 가독성 5</div></div></div>
+          <div class="cat-right"><div class="rep-head" style="color:#42B4A6">6월 대표 VoC</div>
+              <div class="rep-meta"><b>[중]</b> 유사 6건 <span style="color:#636363">전문의/외과</span></div>
+              <div class="kw">환자 모니터링 › 고위험군 필터</div>
+              <div class="rep-content">선별 기준 미만 환자도 모니터링하고 싶다는 현장 요청</div></div></div></div><div class="cat-block">
+          <div class="cat-header" style="background:#7D50F0">AI 모델 · 누적 17건 18%</div>
+          <div class="cat-body"><div class="cat-left"><div class="rep-head">중분류 구성비 (누적)</div><div class="mid">
+              <div class="mid-head"><span>임상 데이터</span><span style="color:#7D50F0;font-weight:700">7건 41%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:41%;background:#7D50F0"></div></div>
+              <div class="mid-sub">· 활력징후 입력 누락 4</div></div><div class="mid">
+              <div class="mid-head"><span>설명가능성</span><span style="color:#7D50F0;font-weight:700">6건 35%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:35%;background:#7D50F0"></div></div>
+              <div class="mid-sub">· 점수 산출 근거 4</div></div><div class="mid">
+              <div class="mid-head"><span>예측 성능</span><span style="color:#7D50F0;font-weight:700">4건 24%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:24%;background:#7D50F0"></div></div>
+              <div class="mid-sub">· 오탐/과탐 2</div></div></div>
+          <div class="cat-right"><div class="rep-head" style="color:#7D50F0">6월 대표 VoC</div>
+              <div class="rep-meta"><b>[중]</b> 유사 4건 <span style="color:#636363">간호사/중환자실</span></div>
+              <div class="kw">임상 데이터 › 활력징후 입력 누락</div>
+              <div class="rep-content">활력징후 입력 누락으로 점수 계산이 안 되는 사례</div></div></div></div><div class="cat-block">
+          <div class="cat-header" style="background:#3F92B7">기술 지원 · 누적 17건 18%</div>
+          <div class="cat-body"><div class="cat-left"><div class="rep-head">중분류 구성비 (누적)</div><div class="mid">
+              <div class="mid-head"><span>인프라</span><span style="color:#3F92B7;font-weight:700">7건 41%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:41%;background:#3F92B7"></div></div>
+              <div class="mid-sub">· 접속 안정성 5</div></div><div class="mid">
+              <div class="mid-head"><span>EMR 연동</span><span style="color:#3F92B7;font-weight:700">6건 35%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:35%;background:#3F92B7"></div></div>
+              <div class="mid-sub">· 처방 연동 4</div></div><div class="mid">
+              <div class="mid-head"><span>보안/권한</span><span style="color:#3F92B7;font-weight:700">4건 24%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:24%;background:#3F92B7"></div></div>
+              <div class="mid-sub">· 병동별 접근 권한 3</div></div></div>
+          <div class="cat-right"><div class="rep-head" style="color:#3F92B7">6월 대표 VoC</div>
+              <div class="rep-meta"><b>[하]</b>  <span style="color:#636363">간호사/응급실</span></div>
+              <div class="kw">EMR 연동 › EMR 점수 표시</div>
+              <div class="rep-content">간호기록에 자동 기록되면 좋겠다는 요청</div></div></div></div>
+  <div class="foot">※ 대분류·중분류·소분류 상세는 VoC master(mock-up) 참조</div>
+</div>
+<!-- CATEGORY 2/2 -->
+<div class="page">
+  <div class="badge">Confidential</div><div class="logo">VoC Analytics</div>
+  <div class="kicker en">03 &nbsp;BY CATEGORY</div>
+  <h1>대분류 키워드별 VoC 구성 (2/2)</h1>
+  <div class="intro">중분류 구성비는 관리대상 누적 기준, 대표 VoC는 6월 접수분 중 심각도·유사 빈도 순으로 선정했습니다.</div>
+  <div class="cat-block">
+          <div class="cat-header" style="background:#E08E45">임상 활용 · 누적 10건 10%</div>
+          <div class="cat-body"><div class="cat-left"><div class="rep-head">중분류 구성비 (누적)</div><div class="mid">
+              <div class="mid-head"><span>업무 흐름</span><span style="color:#E08E45;font-weight:700">6건 60%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:60%;background:#E08E45"></div></div>
+              <div class="mid-sub">· 이중 기록 부담 4</div></div><div class="mid">
+              <div class="mid-head"><span>임상 효용</span><span style="color:#E08E45;font-weight:700">4건 40%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:40%;background:#E08E45"></div></div>
+              <div class="mid-sub">· 일반병동 활용 2</div></div></div>
+          <div class="cat-right"><div class="rep-head" style="color:#E08E45">6월 대표 VoC</div><div class="muted">6월 접수 없음</div></div></div></div><div class="cat-block">
+          <div class="cat-header" style="background:#EE3F60">고객 지원 · 누적 10건 10%</div>
+          <div class="cat-body"><div class="cat-left"><div class="rep-head">중분류 구성비 (누적)</div><div class="mid">
+              <div class="mid-head"><span>온보딩</span><span style="color:#EE3F60;font-weight:700">5건 50%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:50%;background:#EE3F60"></div></div>
+              <div class="mid-sub">· 신규 병동 교육 4</div></div><div class="mid">
+              <div class="mid-head"><span>행정/규제</span><span style="color:#EE3F60;font-weight:700">5건 50%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:50%;background:#EE3F60"></div></div>
+              <div class="mid-sub">· AI 사용 규정 3</div></div></div>
+          <div class="cat-right"><div class="rep-head" style="color:#EE3F60">6월 대표 VoC</div>
+              <div class="rep-meta"><b>[중]</b> 유사 3건 <span style="color:#636363">간호사/일반병동</span></div>
+              <div class="kw">행정/규제 › AI 사용 규정</div>
+              <div class="rep-content">환자 동의서 구득이 어렵다는 현장 의견</div></div></div></div><div class="cat-block">
+          <div class="cat-header" style="background:#636363">기타 · 누적 3건 3%</div>
+          <div class="cat-body"><div class="cat-left"><div class="rep-head">중분류 구성비 (누적)</div><div class="mid">
+              <div class="mid-head"><span>기타</span><span style="color:#636363;font-weight:700">3건 100%</span></div>
+              <div class="mid-bar-bg"><div class="mid-bar" style="width:100%;background:#636363"></div></div>
+              <div class="mid-sub">· 기타 문의 2</div></div></div>
+          <div class="cat-right"><div class="rep-head" style="color:#636363">6월 대표 VoC</div>
+              <div class="rep-meta"><b>[중]</b>  <span style="color:#636363">적정진료관리팀</span></div>
+              <div class="kw">기타 › 기타 의견</div>
+              <div class="rep-content">기타 문의 사항</div></div></div></div>
+  <div class="foot">※ 대분류·중분류·소분류 상세는 VoC master(mock-up) 참조</div>
+</div>
+
+<!-- PLANNED -->
+<div class="page">
+  <div class="badge">Confidential</div><div class="logo">VoC Analytics</div>
+  <div class="kicker en">04 &nbsp;PLANNED</div>
+  <h1>반영 예정 VoC 리스트</h1>
+  <div class="intro">반영 예정으로 관리 중인 VoC입니다. (반영 버전은 확정 시 기재)</div>
+  <div class="plan-card">
+          <div class="plan-top"><span class="chip" style="background:#7D50F0">VoC_20260403_001</span>
+          <span class="plan-inst"><b>간호사/일반병동</b></span>
+          <span class="chip" style="background:#7D50F0;float:right">심각도 중</span></div>
+          <div class="kw">제품 기능 › 알림/알람 › 알람 빈도 조정</div><div class="plan-content">환자 악화 시 병동에 즉시 알림이 오면 좋겠다는 요청</div>
+          <div class="ver">반영 버전 : <span class="ver-box"></span></div></div>
+  <div class="foot">※ 리스트 형식: VoC ID · 제공자 소속/유형 · 키워드 · 내용 · 심각도 · 반영 버전</div>
+</div>
+
+<!-- CAS PICK -->
+<div class="page">
+  <div class="badge">Confidential</div><div class="logo">VoC Analytics</div>
+  <div class="kicker en">05 &nbsp;PICK</div>
+  <h1>VoC 담당자 Pick · 주목해야 할 VoC</h1>
+  <div class="intro">VoC 담당자가 이달 특별히 주목한 VoC를 기재하는 영역입니다.</div>
+  <div class="pick"><span class="pick-tag">PICK 1</span><div class="pick-field">VoC ID :</div><div class="pick-line"></div><div class="pick-field">사용자 유형 :</div><div class="pick-line"></div><div class="pick-field">키워드 (대·중·소) :</div><div class="pick-line"></div><div class="pick-field">주목 사유 :</div><div class="pick-line"></div></div><div class="pick"><span class="pick-tag">PICK 2</span><div class="pick-field">VoC ID :</div><div class="pick-line"></div><div class="pick-field">사용자 유형 :</div><div class="pick-line"></div><div class="pick-field">키워드 (대·중·소) :</div><div class="pick-line"></div><div class="pick-field">주목 사유 :</div><div class="pick-line"></div></div><div class="pick"><span class="pick-tag">PICK 3</span><div class="pick-field">VoC ID :</div><div class="pick-line"></div><div class="pick-field">사용자 유형 :</div><div class="pick-line"></div><div class="pick-field">키워드 (대·중·소) :</div><div class="pick-line"></div><div class="pick-field">주목 사유 :</div><div class="pick-line"></div></div>
+  <div class="foot">※ VoC 담당자 Pick 항목은 회의체 논의 결과를 바탕으로 작성합니다</div>
+</div>
+
+<!-- INQUIRIES -->
+<div class="page">
+  <div class="badge">Confidential</div><div class="logo">VoC Analytics</div>
+  <div class="kicker en">06 &nbsp;INQUIRIES</div>
+  <h1>자주 묻는 문의 TOP 5</h1>
+  <div class="intro">단순 문의 누적 86건 · 6월 18건. 사용자가 어떤 점을 어려워하는지 보여주는 지표입니다.</div>
+  <div class="inq-wrap"><div class="inq-col"><div class="inq-title" style="background:#7D50F0">누적 TOP 5</div><div class="inq-row"><span class="rank" style="background:#7D50F0">1</span>
+          <div class="inq-body"><div class="inq-head"><b>알람 빈도 조정</b> <span style="color:#7D50F0;font-weight:700">6건</span></div>
+          <div class="inq-bar-bg"><div class="inq-bar" style="width:100.0%;background:#7D50F0"></div></div>
+          <div class="inq-sample">예) 환자 악화 시 병동에 즉시 알림이 오면 좋겠다는 요청</div></div></div><div class="inq-row"><span class="rank" style="background:#7D50F0">2</span>
+          <div class="inq-body"><div class="inq-head"><b>이중 기록 부담</b> <span style="color:#7D50F0;font-weight:700">6건</span></div>
+          <div class="inq-bar-bg"><div class="inq-bar" style="width:100.0%;background:#7D50F0"></div></div>
+          <div class="inq-sample">예) 라운딩 외에 별도로 확인하는 것이 부담이라는 의견</div></div></div><div class="inq-row"><span class="rank" style="background:#7D50F0">3</span>
+          <div class="inq-body"><div class="inq-head"><b>처방 연동</b> <span style="color:#7D50F0;font-weight:700">5건</span></div>
+          <div class="inq-bar-bg"><div class="inq-bar" style="width:83.33333333333334%;background:#7D50F0"></div></div>
+          <div class="inq-sample">예) 간호기록에 자동 기록되면 좋겠다는 요청</div></div></div><div class="inq-row"><span class="rank" style="background:#7D50F0">4</span>
+          <div class="inq-body"><div class="inq-head"><b>점수 판독 편의</b> <span style="color:#7D50F0;font-weight:700">5건</span></div>
+          <div class="inq-bar-bg"><div class="inq-bar" style="width:83.33333333333334%;background:#7D50F0"></div></div>
+          <div class="inq-sample">예) 글자 크기 등 판독 가독성 개선 요청</div></div></div><div class="inq-row"><span class="rank" style="background:#7D50F0">5</span>
+          <div class="inq-body"><div class="inq-head"><b>점수 산출 근거</b> <span style="color:#7D50F0;font-weight:700">5건</span></div>
+          <div class="inq-bar-bg"><div class="inq-bar" style="width:83.33333333333334%;background:#7D50F0"></div></div>
+          <div class="inq-sample">예) 점수 산출 근거를 알아야 notify가 가능하다는 임상진 의견</div></div></div></div><div class="inq-col"><div class="inq-title" style="background:#42B4A6">2026년 6월 TOP 5</div><div class="inq-row"><span class="rank" style="background:#42B4A6">1</span>
+          <div class="inq-body"><div class="inq-head"><b>레이아웃</b> <span style="color:#42B4A6;font-weight:700">3건</span></div>
+          <div class="inq-bar-bg"><div class="inq-bar" style="width:100.0%;background:#42B4A6"></div></div>
+          <div class="inq-sample">예) 점수 판독이 직관적이지 않다는 의견</div></div></div><div class="inq-row"><span class="rank" style="background:#42B4A6">2</span>
+          <div class="inq-body"><div class="inq-head"><b>병동별 접근 권한</b> <span style="color:#42B4A6;font-weight:700">2건</span></div>
+          <div class="inq-bar-bg"><div class="inq-bar" style="width:66.66666666666666%;background:#42B4A6"></div></div>
+          <div class="inq-sample">예) 병동별로 담당 환자만 열람하도록 권한 분리 요청</div></div></div><div class="inq-row"><span class="rank" style="background:#42B4A6">3</span>
+          <div class="inq-body"><div class="inq-head"><b>AI 사용 규정</b> <span style="color:#42B4A6;font-weight:700">2건</span></div>
+          <div class="inq-bar-bg"><div class="inq-bar" style="width:66.66666666666666%;background:#42B4A6"></div></div>
+          <div class="inq-sample">예) AI 예측 결과 활용에 대한 규정 문의</div></div></div><div class="inq-row"><span class="rank" style="background:#42B4A6">4</span>
+          <div class="inq-body"><div class="inq-head"><b>활력징후 입력 누락</b> <span style="color:#42B4A6;font-weight:700">1건</span></div>
+          <div class="inq-bar-bg"><div class="inq-bar" style="width:33.33333333333333%;background:#42B4A6"></div></div>
+          <div class="inq-sample">예) 검사 수치가 제때 연동되지 않는다는 병동 보고</div></div></div><div class="inq-row"><span class="rank" style="background:#42B4A6">5</span>
+          <div class="inq-body"><div class="inq-head"><b>악화 예측 민감도</b> <span style="color:#42B4A6;font-weight:700">1건</span></div>
+          <div class="inq-bar-bg"><div class="inq-bar" style="width:33.33333333333333%;background:#42B4A6"></div></div>
+          <div class="inq-sample">예) 악화 예측 민감도 조정 요청</div></div></div></div></div>
+  <div class="foot">※ 단순 문의 전체는 VoC master(mock-up)의 [단순 문의] 시트 참조</div>
+</div>
+
+<!-- POSITIVE -->
+<div class="page">
+  <div class="badge">Confidential</div><div class="logo">VoC Analytics</div>
+  <div class="kicker en">07 &nbsp;POSITIVE</div>
+  <h1>긍정 VoC (2026년 6월)</h1>
+  <div class="pos-stats">
+    <div class="pos-stat" style="background:var(--mint-l)"><div class="num" style="color:var(--mint-d)">5</div><div class="lbl">6월 긍정 VoC</div></div>
+    <div class="pos-stat" style="background:#E5DCFC"><div class="num" style="color:var(--purple)">17</div><div class="lbl">누적 긍정 VoC</div></div>
+  </div>
+  <div class="intro">긍정 VoC는 중복 여부와 관계없이 전량 누적 관리하며, 본 페이지는 해당 월(6월) 접수분만 표시합니다.</div>
+  <div class="section-title">6월 긍정 VoC 상세</div>
+  <div class="pos-card"><div class="pos-inst"><b>전문의/내과</b></div>
+          <div class="kw">제품 기능 › 기능 개선 요청 › 간호기록 연동</div><div class="pos-title">조기 선별로 악화 환자를 빨리 파악할 수 있다는 긍정 피드백</div></div><div class="pos-card"><div class="pos-inst"><b>전문의/외과</b></div>
+          <div class="kw">제품 기능 › 기능 개선 요청 › 라운딩 체크리스트</div><div class="pos-title">야간 근무 시 환자 모니터링에 도움이 된다는 피드백</div></div><div class="pos-card"><div class="pos-inst"><b>전문의/외과</b></div>
+          <div class="kw">AI 모델 › 설명가능성 › 점수 산출 근거</div><div class="pos-title">조기 선별로 악화 환자를 빨리 파악할 수 있다는 긍정 피드백</div></div><div class="pos-card"><div class="pos-inst"><b>전문의/내과</b></div>
+          <div class="kw">제품 기능 › 기능 개선 요청 › 활력징후 추이 그래프</div><div class="pos-title">신속대응팀 운영에 실질적 도움이 된다는 의견</div></div><div class="pos-card"><div class="pos-inst"><b>간호사/일반병동</b></div>
+          <div class="kw">제품 기능 › 알림/알람 › 알람 빈도 조정</div><div class="pos-title">신속대응팀 운영에 실질적 도움이 된다는 의견</div></div>
+  <div class="section-title" style="margin-top:24px">월별 VoC 유입 추이</div>
+  <div class="monthly"><div class="mc-col"><div class="mc-bar" style="height:100.0%"></div><div class="mc-val">53</div><div class="mc-lbl">01</div></div><div class="mc-col"><div class="mc-bar" style="height:47.16981132075472%"></div><div class="mc-val">25</div><div class="mc-lbl">02</div></div><div class="mc-col"><div class="mc-bar" style="height:52.83018867924528%"></div><div class="mc-val">28</div><div class="mc-lbl">03</div></div><div class="mc-col"><div class="mc-bar" style="height:49.056603773584904%"></div><div class="mc-val">26</div><div class="mc-lbl">04</div></div><div class="mc-col"><div class="mc-bar" style="height:43.39622641509434%"></div><div class="mc-val">23</div><div class="mc-lbl">05</div></div><div class="mc-col"><div class="mc-bar" style="height:84.90566037735849%"></div><div class="mc-val">45</div><div class="mc-lbl">06</div></div></div>
+  <div class="foot">※ 포트폴리오용 가상 데이터 · 긍정 VoC 전체는 VoC master(mock-up) 참조</div>
+</div>
+
+</body></html>
